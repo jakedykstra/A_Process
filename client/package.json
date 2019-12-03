@@ -10,7 +10,8 @@
     ]
   },
   "scripts": {
-    "start": "webpack-dev-server --open"
+    "build": "webpack -p",
+    "start": "webpack-dev-server -d --content-base ./public"
   },
   "keywords": [],
   "author": "",
@@ -26,9 +27,13 @@
     "@babel/core": "^7.7.2",
     "@babel/preset-env": "^7.7.1",
     "@babel/preset-react": "^7.7.0",
+    "@types/react": "16.9.11",
+    "@types/react-dom": "16.9.4",
+    "clean-webpack-plugin": "3.0.0",
     "babel-eslint": "^9.0.0",
     "babel-loader": "^8.0.6",
     "css-loader": "^3.2.0",
+    "cypress": "^3.7.0",
     "eslint": "^5.14.1",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^4.1.0",
@@ -40,9 +45,12 @@
     "eslint-plugin-react": "^7.12.4",
     "eslint-plugin-react-hooks": "^1.3.0",
     "html-webpack-plugin": "^3.2.0",
+    "jest": "^24.9.0",
     "less-loader": "^5.0.0",
     "prettier": "^1.16.4",
     "style-loader": "^1.0.0",
+    "ts-loader": "^6.2.1",
+    "typescript": "3.7.2",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.9.0"
