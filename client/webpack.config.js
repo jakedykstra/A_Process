@@ -3,6 +3,11 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const HtmlWebpackPlugin =  require('html-webpack-plugin');
 
 module.exports = {
+  devServer: {
+    contentBase: path.join(__dirname, 'dist'),
+    compress: true,
+    port: 3000
+  },
   entry : './src/index.tsx',
   plugins : [
     new CleanWebpackPlugin({

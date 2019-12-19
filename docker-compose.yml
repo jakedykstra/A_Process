@@ -1,9 +1,9 @@
 version: '3'
 services:
-  postgres:
-    image: 'postgres:latest'
-  redis:
-    image: 'redis:latest'
+  mysql:
+    image: 'mysql:latest'
+    environment:
+      MYSQL_ROOT_PASSWORD: root
   nginx:
     restart: always
     build:
@@ -11,7 +11,7 @@ services:
       context: ./nginx
     ports:
       - '3050:80'
-  api:
+  node:
     build:
       dockerfile: Dockerfile.dev
       context: ./server
@@ -19,13 +19,10 @@ services:
       - /app/node_modules
       - ./server:/app
     environment:
-      - REDIS_HOST=redis
-      - REDIS_PORT=6379
-      - PGUSER=postgres
-      - PGHOST=postgres
-      - PGDATABASE=postgres
-      - PGPASSWORD=postgres_password
-      - PGPORT=5432
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_PASSWORD=proj 
+      - MYSQL_USER=jdykstra
+      - MYSQL_DATABASE=process
   client:
     build:
       dockerfile: Dockerfile.dev
